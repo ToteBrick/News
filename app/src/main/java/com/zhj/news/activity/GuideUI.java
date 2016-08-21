@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.zhj.news.R;
 import com.zhj.news.utils.DimensUtils;
@@ -24,7 +25,8 @@ public class GuideUI extends Activity {
     private List<ImageView> mDatas;
     private int[] icons = new int[]{R.mipmap.guide_1,R.mipmap.guide_2,R.mipmap.guide_3};
     private LinearLayout mPiontContainer;
-
+    private int mPonitSpace; //两点的距离
+    private View mSelectedPoint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,6 +43,34 @@ public class GuideUI extends Activity {
 
         mViewPager = (ViewPager) findViewById(R.id.guide_viewpager);
         mPiontContainer = (LinearLayout) findViewById(R.id.guide_point_container);
+        mSelectedPoint = findViewById(R.id.guide_selected);
+//        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener())过时
+
+        mPonitSpace = DimensUtils.dp2px(this,20);//获得两点间距离
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //滑动时回调
+                //position 滑动的页面
+                //positionOffset 滑动的比例
+                // positionOffsetPixels 滑动的像素
+                int marginLeft = (int) (mPonitSpace*positionOffset +mPonitSpace*position+ 0.5f );
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mSelectedPoint.getLayoutParams();
+                params.leftMargin = marginLeft;
+                mSelectedPoint.setLayoutParams(params);
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void initData() {
@@ -55,9 +85,9 @@ public class GuideUI extends Activity {
             //将点添加到集合
             View point = new View(this);
             point.setBackgroundResource(R.drawable.point_normal);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DimensUtils.dp2px(GuideUI.this,10),DimensUtils.dp2px(GuideUI.this,10));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DimensUtils.dp2px(this,10),DimensUtils.dp2px(this,10));
             if(i!=0){
-                params.leftMargin = DimensUtils.dp2px(GuideUI.this,10);
+                params.leftMargin = DimensUtils.dp2px(this,10);
             }
             mPiontContainer.addView(point,params);
         }
