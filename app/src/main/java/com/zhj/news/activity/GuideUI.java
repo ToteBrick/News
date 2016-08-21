@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.zhj.news.R;
+import com.zhj.news.utils.DimensUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +55,9 @@ public class GuideUI extends Activity {
             //将点添加到集合
             View point = new View(this);
             point.setBackgroundResource(R.drawable.point_normal);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(10,10);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DimensUtils.dp2px(GuideUI.this,10),DimensUtils.dp2px(GuideUI.this,10));
             if(i!=0){
-                params.leftMargin = 10;
+                params.leftMargin = DimensUtils.dp2px(GuideUI.this,10);
             }
             mPiontContainer.addView(point,params);
         }
