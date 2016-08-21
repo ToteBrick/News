@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -27,6 +28,7 @@ public class GuideUI extends Activity {
     private LinearLayout mPiontContainer;
     private int mPonitSpace; //两点的距离
     private View mSelectedPoint;
+    private Button mBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -44,6 +46,7 @@ public class GuideUI extends Activity {
         mViewPager = (ViewPager) findViewById(R.id.guide_viewpager);
         mPiontContainer = (LinearLayout) findViewById(R.id.guide_point_container);
         mSelectedPoint = findViewById(R.id.guide_selected);
+        mBtn = (Button) findViewById(R.id.guide_btn);
 //        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener())过时
 
         mPonitSpace = DimensUtils.dp2px(this,20);//获得两点间距离
@@ -63,7 +66,11 @@ public class GuideUI extends Activity {
 
             @Override
             public void onPageSelected(int position) {
-
+                if (position == mDatas.size()-1){
+                    mBtn.setVisibility(View.VISIBLE);
+                }else {
+                    mBtn.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -71,6 +78,15 @@ public class GuideUI extends Activity {
 
             }
         });
+
+//        mSelectedPoint.getViewTreeObserver().addOnGlobalFocusChangeListener(new ViewTreeObserver.OnGlobalFocusChangeListener() {
+//            @Override
+//            public void onGlobalFocusChanged(View oldFocus, View newFocus) {
+//              mPonitSpace =  mPiontContainer.getChildAt(1).getLeft()- mPiontContainer.getChildAt(0).getLeft();
+//                //移除布局监听
+//                mSelectedPoint.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+//            }
+//        });
     }
 
     private void initData() {

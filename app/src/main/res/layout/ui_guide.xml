@@ -32,4 +32,17 @@
             android:background="@drawable/point_selected" />
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/guide_btn"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/guide_btn_selector"
+        android:textColor="@color/guide_btn_textcolor"
+        android:text="开始体验"
+        />
 </RelativeLayout>
