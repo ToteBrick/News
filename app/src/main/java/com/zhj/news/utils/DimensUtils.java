@@ -4,15 +4,7 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 
 /**
- * @项目名:ZhihuiBeijing
- * @包名:com.zhj.zhbj.utils
- * @类名:DimensUtils
- * @创建者:zhj
- * @描述:TODO:
- * @版本号:$Rev$
- * @更新者:$Author$
- * @更新时间:$Date$
- * @更新内容:TODO:
+ * @更新内容:屏幕适配工具类。
  */
 public class DimensUtils
 {

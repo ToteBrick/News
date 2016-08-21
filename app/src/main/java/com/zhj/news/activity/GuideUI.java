@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.zhj.news.R;
 
@@ -21,6 +22,7 @@ public class GuideUI extends Activity {
     private ViewPager mViewPager;
     private List<ImageView> mDatas;
     private int[] icons = new int[]{R.mipmap.guide_1,R.mipmap.guide_2,R.mipmap.guide_3};
+    private LinearLayout mPiontContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class GuideUI extends Activity {
     private void initView() {
 
         mViewPager = (ViewPager) findViewById(R.id.guide_viewpager);
+        mPiontContainer = (LinearLayout) findViewById(R.id.guide_point_container);
     }
 
     private void initData() {
@@ -47,6 +50,15 @@ public class GuideUI extends Activity {
             iv.setImageResource(icons[i]);
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
             mDatas.add(iv);
+
+            //将点添加到集合
+            View point = new View(this);
+            point.setBackgroundResource(R.drawable.point_normal);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(10,10);
+            if(i!=0){
+                params.leftMargin = 10;
+            }
+            mPiontContainer.addView(point,params);
         }
         mViewPager.setAdapter(new GuideViewPager());
     }
