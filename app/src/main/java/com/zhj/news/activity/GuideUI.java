@@ -1,6 +1,7 @@
 package com.zhj.news.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,6 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.zhj.news.R;
 import com.zhj.news.utils.DimensUtils;
+import com.zhj.news.utils.PreferenceUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.List;
 /**
  * Created by hasee on 2016/8/21.
  */
-public class GuideUI extends Activity {
+public class GuideUI extends Activity implements View.OnClickListener {
     private ViewPager mViewPager;
     private List<ImageView> mDatas;
     private int[] icons = new int[]{R.mipmap.guide_1,R.mipmap.guide_2,R.mipmap.guide_3};
@@ -47,6 +49,7 @@ public class GuideUI extends Activity {
         mPiontContainer = (LinearLayout) findViewById(R.id.guide_point_container);
         mSelectedPoint = findViewById(R.id.guide_selected);
         mBtn = (Button) findViewById(R.id.guide_btn);
+        mBtn.setOnClickListener(this);
 //        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener())过时
 
         mPonitSpace = DimensUtils.dp2px(this,20);//获得两点间距离
@@ -108,6 +111,21 @@ public class GuideUI extends Activity {
             mPiontContainer.addView(point,params);
         }
         mViewPager.setAdapter(new GuideViewPager());
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v==mBtn){
+            clickBtn();
+        }
+    }
+
+    private void clickBtn() {
+        //load to home
+        Intent intent = new Intent(GuideUI.this,HomeUI.class);
+        startActivity(intent);
+        PreferenceUtils.putBoolean(this,SplashUi.KEY_FIRST_ENTER,false);
+        finish();
     }
 
     private class GuideViewPager extends PagerAdapter{

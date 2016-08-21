@@ -16,7 +16,7 @@ import com.zhj.news.utils.PreferenceUtils;
 
 public class SplashUi extends Activity {
 
-    private static final java.lang.String KEY_FIRST_ENTER = "key_first_enter";
+    public static final java.lang.String KEY_FIRST_ENTER = "key_first_enter";
     private View mRootView;
 
     @Override
@@ -79,6 +79,9 @@ public class SplashUi extends Activity {
                 finish();
             } else {
                 Log.d("SplashUi", "home");
+                Intent intent = new Intent(SplashUi.this,HomeUI.class);
+                startActivity(intent);
+                finish();
             }
         }
 
