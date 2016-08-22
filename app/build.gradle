@@ -27,4 +27,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     //    compile project(':slidermenu')
     //    compile project(':sliding_menu/libs')
+    compile project(':slidingmenulib')
 }
