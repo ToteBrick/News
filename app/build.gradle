@@ -2,18 +2,18 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 'Google Apis:Google Apis:23'
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
         applicationId "com.zhj.news"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,4 +25,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    //    compile project(':slidermenu')
+    //    compile project(':sliding_menu/libs')
 }
