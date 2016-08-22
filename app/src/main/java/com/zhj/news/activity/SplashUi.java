@@ -30,7 +30,7 @@ public class SplashUi extends Activity {
     private void initView() {
         mRootView = findViewById(R.id.splash_root);
 
-        RotateAnimation rotate = new RotateAnimation(0, 360, Animation.RELATIVE_TO_PARENT, 0.5f,
+        RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_PARENT, 0.5f,
                 Animation.RELATIVE_TO_PARENT, 0.5f);
 
         ScaleAnimation scale = new ScaleAnimation(0f, 1f, Animation.RELATIVE_TO_PARENT, 0.5f,
@@ -42,7 +42,7 @@ public class SplashUi extends Activity {
         set.addAnimation(rotate);
         set.addAnimation(scale);
         set.addAnimation(alpha);
-        set.setDuration(1500);
+        set.setDuration(1000);
         set.setAnimationListener(new SplashAnimationListner());
         mRootView.startAnimation(set);
     }
