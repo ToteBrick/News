@@ -7,6 +7,11 @@ import android.view.ViewGroup;
 
 import com.zhj.news.R;
 import com.zhj.news.controller.BaseController;
+import com.zhj.news.controller.tab.GovTabController;
+import com.zhj.news.controller.tab.HomeTabController;
+import com.zhj.news.controller.tab.NewsCenterTabController;
+import com.zhj.news.controller.tab.SettingTabController;
+import com.zhj.news.controller.tab.SmartServiceTabController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +50,16 @@ public class ContentFragment extends BaseFragment {
 //        }
 //            Log.d("ContentFragment", "mPagerDatas:"+mPagerDatas);
 
+
+
         mPagerDatas = new ArrayList<BaseController>() ;
-        //加载具体数据TODO
+        //加载具体数据
+
+        mPagerDatas.add(new HomeTabController(mActivity)); //首页
+        mPagerDatas.add(new NewsCenterTabController(mActivity));//新闻中心
+        mPagerDatas.add(new SmartServiceTabController(mActivity));//智慧服务
+        mPagerDatas.add(new GovTabController(mActivity));//政务
+        mPagerDatas.add(new SettingTabController(mActivity));//设置
 
         //给viewpager加载数据
         mViewPager.setAdapter(new ContentPagerAdapter());
@@ -70,7 +83,7 @@ public class ContentFragment extends BaseFragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             BaseController controller = mPagerDatas.get(position);
-            //显示
+            //基类提供显示view方法由子类来实现
             View rootView = controller.getRootView();
             container.addView(rootView);
             return rootView; //标记

@@ -9,8 +9,8 @@ import com.zhj.news.controller.BaseController;
 /**
  * Created by hasee on 2016/8/23.
  */
-public class HomeTabController extends BaseController {
-    public HomeTabController(Context context) {
+public class GovTabController extends BaseController {
+    public GovTabController(Context context) {
         super(context);
     }
 
@@ -18,7 +18,7 @@ public class HomeTabController extends BaseController {
 
         //模拟数据
         TextView tv = new TextView(context);
-        tv.setText("home");
+        tv.setText("gov");
         return tv;
     }
 }
