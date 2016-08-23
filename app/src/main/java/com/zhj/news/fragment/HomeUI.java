@@ -3,6 +3,7 @@ package com.zhj.news.fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Window;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -16,6 +17,7 @@ public class HomeUI extends SlidingFragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_home_content);
         setBehindContentView(R.layout.ui_home_menu);
@@ -34,8 +36,12 @@ public class HomeUI extends SlidingFragmentActivity {
         slidingMenu.setShadowDrawable(R.drawable.shadow);
         //set mode
         slidingMenu.setMode(SlidingMenu.LEFT); //如果指定模式为leftright,需要设置setSecondaryMenu指定第二个菜单布局。
+        initFragment();
 
-//        Animation animation = new Animation(this, getSystemService(ACTIVITY_SERVICE)) ;
+
+    }
+ //抽取方法快捷键 ctrl+alt+m
+    private void initFragment() {
         //加载左，右侧fragment
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
