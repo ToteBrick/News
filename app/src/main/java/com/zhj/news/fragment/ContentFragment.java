@@ -2,6 +2,7 @@ package com.zhj.news.fragment;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -60,7 +61,7 @@ public class ContentFragment extends BaseFragment {
         mPagerDatas.add(new SmartServiceTabController(mActivity));//智慧服务
         mPagerDatas.add(new GovTabController(mActivity));//政务
         mPagerDatas.add(new SettingTabController(mActivity));//设置
-
+        Log.d("ContentFragment", "mPagerDatas:"+mPagerDatas);
         //给viewpager加载数据
         mViewPager.setAdapter(new ContentPagerAdapter());
     }
