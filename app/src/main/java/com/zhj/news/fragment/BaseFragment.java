@@ -12,9 +12,10 @@ import android.view.ViewGroup;
  * Created by hasee on 2016/8/23.
  * fragment 的基类
  */
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends Fragment {
 
     protected Activity mActivity; //宿主
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +28,15 @@ public abstract class BaseFragment extends Fragment{
     }
 
     @Override
-        //fragment加载数据，一般重写此方法。
+    //fragment加载数据，一般重写此方法。
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-       initData();
+        initData();
     }
 
     protected abstract View initView();
-    protected  void initData(){
+
+    protected void initData() {
         //加载数据的方法，如果子类有数据加载，就复写此方法。
     }
 }
