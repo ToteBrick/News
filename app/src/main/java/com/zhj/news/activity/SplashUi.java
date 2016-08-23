@@ -12,6 +12,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 
 import com.zhj.news.R;
+import com.zhj.news.fragment.HomeUI;
 import com.zhj.news.utils.PreferenceUtils;
 
 public class SplashUi extends Activity {

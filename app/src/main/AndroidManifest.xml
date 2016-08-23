@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GuideUI"></activity>
-        <activity android:name=".activity.HomeUI"></activity>
+        <activity android:name=".fragment.HomeUI"></activity>
 
     </application>
 

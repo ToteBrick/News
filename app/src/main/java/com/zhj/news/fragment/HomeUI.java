@@ -1,6 +1,8 @@
-package com.zhj.news.activity;
+package com.zhj.news.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -32,7 +34,13 @@ public class HomeUI extends SlidingFragmentActivity {
         slidingMenu.setShadowDrawable(R.drawable.shadow);
         //set mode
         slidingMenu.setMode(SlidingMenu.LEFT); //如果指定模式为leftright,需要设置setSecondaryMenu指定第二个菜单布局。
-        
 
+//        Animation animation = new Animation(this, getSystemService(ACTIVITY_SERVICE)) ;
+        //加载左，右侧fragment
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.home_menu_container,new MenuFragment());
+        transaction.replace(R.id.home_content_container,new ContentFragment());
+        transaction.commit();
     }
 }

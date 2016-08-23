@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.zhj.news.R;
+import com.zhj.news.fragment.HomeUI;
 import com.zhj.news.utils.DimensUtils;
 import com.zhj.news.utils.PreferenceUtils;
 
