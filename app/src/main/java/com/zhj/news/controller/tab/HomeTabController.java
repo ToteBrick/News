@@ -16,8 +16,9 @@ public class HomeTabController extends TabController {
         super(context);
     }
 
-    protected View initView(Context context) {
 
+    @Override
+    protected View initContentView(Context context) {
         //模拟数据
         TextView tv = new TextView(context);
         tv.setText("home");
@@ -25,10 +26,5 @@ public class HomeTabController extends TabController {
         tv.setTextSize(20);
         tv.setTextColor(Color.RED);
         return tv;
-    }
-
-    @Override
-    protected View initContentView(Context context) {
-        return null;
     }
 }

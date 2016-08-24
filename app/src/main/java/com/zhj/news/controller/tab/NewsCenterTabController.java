@@ -16,19 +16,14 @@ public class NewsCenterTabController extends TabController {
         super(context);
     }
 
-    protected View initView(Context context) {
-
+    @Override
+    protected View initContentView(Context context) {
         //模拟数据
         TextView tv = new TextView(context);
-        tv.setText("news");
+        tv.setText("home");
         tv.setGravity(Gravity.CENTER);
         tv.setTextSize(20);
         tv.setTextColor(Color.RED);
         return tv;
-    }
-
-    @Override
-    protected View initContentView(Context context) {
-        return null;
     }
 }
