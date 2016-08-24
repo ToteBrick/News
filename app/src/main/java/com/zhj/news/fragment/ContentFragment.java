@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by hasee on 2016/8/23.
  */
-public class ContentFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener{
+public class ContentFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener {
 
     private NoScrollViewPager mViewPager;
     private RadioGroup mRadioGroup;
@@ -79,13 +79,10 @@ public class ContentFragment extends BaseFragment implements RadioGroup.OnChecke
     }
 
 
-
     @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId)
-    {
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-        switch (checkedId)
-        {
+        switch (checkedId) {
             case R.id.content_rb_home:
                 CurrentTab = 0;
                 // 不可打开菜单
@@ -169,8 +166,7 @@ public class ContentFragment extends BaseFragment implements RadioGroup.OnChecke
 
     }
 
-    public void switchMenu(int position)
-    {
+    public void switchMenu(int position) {
         // 找到当前选中的controller
         TabController controller = mPagerDatas.get(CurrentTab);
 
