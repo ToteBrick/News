@@ -13,38 +13,43 @@
 
     <!--below-->
     <RadioGroup
-        android:gravity="center"
-        android:background="@mipmap/bottom_tab_bg"
-        android:orientation="horizontal"
+        android:id="@+id/content_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0">
+        android:layout_weight="0"
+        android:background="@mipmap/bottom_tab_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <RadioButton
-            android:drawableTop="@drawable/tab_home_selector"
-            style="@style/TabStyle"
             android:id="@+id/content_rb_home"
-            android:text="首页"/>
-        <RadioButton
-            android:drawableTop="@drawable/tab_news_selector"
             style="@style/TabStyle"
+            android:drawableTop="@drawable/tab_home_selector"
+            android:text="首页" />
+
+        <RadioButton
             android:id="@+id/content_rb_news"
-            android:text="新闻中心"/>
-        <RadioButton
-            android:drawableTop="@drawable/tab_smart_selector"
             style="@style/TabStyle"
+            android:drawableTop="@drawable/tab_news_selector"
+            android:text="新闻中心" />
+
+        <RadioButton
             android:id="@+id/content_rb_smart"
-            android:text="智慧服务"/>
-        <RadioButton
-            android:drawableTop="@drawable/tab_gov_selector"
             style="@style/TabStyle"
+            android:drawableTop="@drawable/tab_smart_selector"
+            android:text="智慧服务" />
+
+        <RadioButton
             android:id="@+id/content_rb_gov"
-            android:text="政务"/>
-        <RadioButton
-            android:drawableTop="@drawable/tab_setting_selector"
             style="@style/TabStyle"
+            android:drawableTop="@drawable/tab_gov_selector"
+            android:text="政务" />
+
+        <RadioButton
             android:id="@+id/content_rb_setting"
-            android:text="设置"/>
+            style="@style/TabStyle"
+            android:drawableTop="@drawable/tab_setting_selector"
+            android:text="设置" />
 
     </RadioGroup>
 </LinearLayout>

@@ -22,11 +22,18 @@ public abstract class BaseController {
     //初始化controller显示的view
     protected abstract View initView(Context context);
 
-    /*
-        *提供显示的view
+         /**
+         *提供显示的view
          */
     public View getRootView(){
 
         return mRootView;
+    }
+
+    /**
+     * 提供加载数据的方法。
+     */
+    public void initData(){
+
     }
 }
