@@ -1,11 +1,11 @@
 package com.zhj.news.fragment;
 
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.zhj.news.R;
 import com.zhj.news.controller.TabController;
 import com.zhj.news.controller.tab.GovTabController;
@@ -13,6 +13,7 @@ import com.zhj.news.controller.tab.HomeTabController;
 import com.zhj.news.controller.tab.NewsCenterTabController;
 import com.zhj.news.controller.tab.SettingTabController;
 import com.zhj.news.controller.tab.SmartServiceTabController;
+import com.zhj.news.view.NoScrollViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,9 @@ import java.util.List;
 /**
  * Created by hasee on 2016/8/23.
  */
-public class ContentFragment extends BaseFragment {
+public class ContentFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener{
 
-    private ViewPager mViewPager;
+    private NoScrollViewPager mViewPager;
     private RadioGroup mRadioGroup;
     // private List<TextView> mPagerDatas; // 临时显示数据
 
@@ -38,7 +39,7 @@ public class ContentFragment extends BaseFragment {
         // return tv;
         View view = View.inflate(mActivity, R.layout.content, null);
 
-        mViewPager = (ViewPager) view.findViewById(R.id.content_viewpager);
+        mViewPager = (NoScrollViewPager) view.findViewById(R.id.content_viewpager);
         mRadioGroup = (RadioGroup) view.findViewById(R.id.content_rg);
         return view;
     }
@@ -70,59 +71,61 @@ public class ContentFragment extends BaseFragment {
         mViewPager.setAdapter(new ContentPagerAdapter()); // list数据
 
         // 设置radiogroup选中监听
-//        mRadioGroup.setOnCheckedChangeListener(this);
+        mRadioGroup.setOnCheckedChangeListener(this);
 
         // 设置默认选中项
-//        mRadioGroup.check(R.id.content_rb_home);
+        mRadioGroup.check(R.id.content_rb_home);
 
     }
 
-//    @Override
-//    public void onCheckedChanged(RadioGroup group, int checkedId)
-//    {
-//
-//        switch (checkedId)
-//        {
-//            case R.id.content_rb_home:
-//                CurrentTab = 0;
-//                // 不可打开菜单
-//                enableSlidingMenu(false);
-//                break;
-//            case R.id.content_rb_news:
-//                CurrentTab = 1;
-//                // 可打开菜单
-//                enableSlidingMenu(true);
-//                break;
-//            case R.id.content_rb_smart:
-//                CurrentTab = 2;
-//                // 可打开菜单
-//                enableSlidingMenu(true);
-//                break;
-//            case R.id.content_rb_gov:
-//                CurrentTab = 3;
-//                // 可打开菜单
-//                enableSlidingMenu(true);
-//                break;
-//            case R.id.content_rb_setting:
-//                CurrentTab = 4;
-//                // 不可打开菜单
-//                enableSlidingMenu(false);
-//                break;
-//
-//            default:
-//                break;
-//        }
-//
-//        // viewpager需要切换到对应的页面
-//        mViewPager.setCurrentItem(CurrentTab);
-//
-//    }
 
-//    private void enableSlidingMenu(Boolean enable) {
-//        HomeUI ui = (HomeUI) mActivity;
-//        SlidingMenu slidingMenu = ui.getSlidingMenu();
-//        slidingMenu.setTouchModeAbove(enable ? SlidingMenu.TOUCHMODE_FULLSCREEN : SlidingMenu.TOUCHMODE_NONE);
-//    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId)
+    {
+
+        switch (checkedId)
+        {
+            case R.id.content_rb_home:
+                CurrentTab = 0;
+                // 不可打开菜单
+                enableSlidingMenu(false);
+                break;
+            case R.id.content_rb_news:
+                CurrentTab = 1;
+                // 可打开菜单
+                enableSlidingMenu(true);
+                break;
+            case R.id.content_rb_smart:
+                CurrentTab = 2;
+                // 可打开菜单
+                enableSlidingMenu(true);
+                break;
+            case R.id.content_rb_gov:
+                CurrentTab = 3;
+                // 可打开菜单
+                enableSlidingMenu(true);
+                break;
+            case R.id.content_rb_setting:
+                CurrentTab = 4;
+                // 不可打开菜单
+                enableSlidingMenu(false);
+                break;
+
+            default:
+                break;
+        }
+
+        // viewpager需要切换到对应的页面
+        mViewPager.setCurrentItem(CurrentTab);
+
+    }
+
+    private void enableSlidingMenu(Boolean enable) {
+        HomeUI ui = (HomeUI) mActivity;
+        SlidingMenu slidingMenu = ui.getSlidingMenu();
+        slidingMenu.setTouchModeAbove(enable ? SlidingMenu.TOUCHMODE_FULLSCREEN : SlidingMenu.TOUCHMODE_NONE);
+    }
 
     private class ContentPagerAdapter extends PagerAdapter {
 
@@ -166,13 +169,13 @@ public class ContentFragment extends BaseFragment {
 
     }
 
-//    public void switchMenu(int position)
-//    {
-//        // 找到当前选中的controller
-//        TabController controller = mPagerDatas.get(CurrentTab);
-//
-//        // 通知controller去切换菜单
-//        controller.switchMenu(position);
-//    }
+    public void switchMenu(int position)
+    {
+        // 找到当前选中的controller
+        TabController controller = mPagerDatas.get(CurrentTab);
+
+        // 通知controller去切换菜单
+        controller.switchMenu(position);
+    }
 
 }
