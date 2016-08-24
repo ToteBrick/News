@@ -13,20 +13,19 @@ import com.zhj.news.fragment.HomeUI;
 /**
  * tab对应的controller基类.
  */
-public abstract class TabController extends BaseController
-{
+public abstract class TabController extends BaseController {
 
     protected TextView mTvTitle;
     protected ImageView mIvMenu;
     protected FrameLayout mContentLayout;
+
     public TabController(Context context) {
         super(context);
 
     }
 
     @Override
-    protected View initView(Context context)
-    {
+    protected View initView(Context context) {
         //title相同
         View view = View.inflate(context, R.layout.tab_layout, null);
         mTvTitle = (TextView) view.findViewById(R.id.tab_tv_title);
@@ -38,8 +37,7 @@ public abstract class TabController extends BaseController
         mIvMenu.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 //打开菜单
                 HomeUI ui = (HomeUI) mContext;
                 SlidingMenu slidingMenu = ui.getSlidingMenu();
@@ -53,8 +51,7 @@ public abstract class TabController extends BaseController
     protected abstract View initContentView(Context context);
 
     //切换菜单,如果子类有切换菜单的功能，复写此方法。
-    public void switchMenu(int position)
-    {
+    public void switchMenu(int position) {
 
     }
 
