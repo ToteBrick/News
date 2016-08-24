@@ -26,4 +26,9 @@ public class NewsCenterTabController extends TabController {
         tv.setTextColor(Color.RED);
         return tv;
     }
+    @Override
+    public void initData() {
+        mTvTitle.setText("新闻");
+        mIvMenu.setVisibility(View.VISIBLE);
+    }
 }

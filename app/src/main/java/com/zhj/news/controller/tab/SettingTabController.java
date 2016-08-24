@@ -26,4 +26,10 @@ public class SettingTabController extends TabController {
         tv.setTextColor(Color.RED);
         return tv;
     }
+
+    @Override
+    public void initData() {
+        mTvTitle.setText("设置中心");
+        mIvMenu.setVisibility(View.GONE);
+    }
 }

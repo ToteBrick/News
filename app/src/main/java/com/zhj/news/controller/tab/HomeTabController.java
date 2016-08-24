@@ -27,4 +27,10 @@ public class HomeTabController extends TabController {
         tv.setTextColor(Color.RED);
         return tv;
     }
+
+    @Override
+    public void initData() {
+        mTvTitle.setText("首页");
+        mIvMenu.setVisibility(View.GONE);
+    }
 }

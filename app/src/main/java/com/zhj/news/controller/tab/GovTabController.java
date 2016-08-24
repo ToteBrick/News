@@ -26,4 +26,10 @@ public class GovTabController extends TabController {
         tv.setTextColor(Color.RED);
         return tv;
     }
+
+    @Override
+    public void initData() {
+        mTvTitle.setText("政务");
+        mIvMenu.setVisibility(View.VISIBLE);
+    }
 }

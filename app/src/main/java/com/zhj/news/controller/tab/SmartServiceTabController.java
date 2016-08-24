@@ -26,4 +26,9 @@ public class SmartServiceTabController extends TabController {
         tv.setTextColor(Color.RED);
         return tv;
     }
+    @Override
+    public void initData() {
+        mTvTitle.setText("智慧服务");
+        mIvMenu.setVisibility(View.VISIBLE);
+    }
 }
