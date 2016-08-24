@@ -20,7 +20,7 @@ public class NewsCenterTabController extends TabController {
     protected View initContentView(Context context) {
         //模拟数据
         TextView tv = new TextView(context);
-        tv.setText("home");
+        tv.setText("新闻");
         tv.setGravity(Gravity.CENTER);
         tv.setTextSize(20);
         tv.setTextColor(Color.RED);
