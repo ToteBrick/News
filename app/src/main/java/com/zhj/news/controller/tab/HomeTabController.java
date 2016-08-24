@@ -6,12 +6,12 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.zhj.news.controller.BaseController;
+import com.zhj.news.controller.TabController;
 
 /**
  * Created by hasee on 2016/8/23.
  */
-public class HomeTabController extends BaseController {
+public class HomeTabController extends TabController {
     public HomeTabController(Context context) {
         super(context);
     }
@@ -25,5 +25,10 @@ public class HomeTabController extends BaseController {
         tv.setTextSize(20);
         tv.setTextColor(Color.RED);
         return tv;
+    }
+
+    @Override
+    protected View initContentView(Context context) {
+        return null;
     }
 }

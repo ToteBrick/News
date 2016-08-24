@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import com.zhj.news.R;
-import com.zhj.news.controller.BaseController;
+import com.zhj.news.controller.TabController;
 import com.zhj.news.controller.tab.GovTabController;
 import com.zhj.news.controller.tab.HomeTabController;
 import com.zhj.news.controller.tab.NewsCenterTabController;
@@ -26,7 +26,7 @@ public class ContentFragment extends BaseFragment {
     private RadioGroup mRadioGroup;
     // private List<TextView> mPagerDatas; // 临时显示数据
 
-    private List<BaseController> mPagerDatas;
+    private List<TabController> mPagerDatas;
 
     private int CurrentTab;
 
@@ -59,7 +59,7 @@ public class ContentFragment extends BaseFragment {
         // view对象的声明，数据加载
         // }
         // 新建页面对应数据
-        mPagerDatas = new ArrayList<BaseController>();
+        mPagerDatas = new ArrayList<TabController>();
         // 新建页面对应的数据
         mPagerDatas.add(new HomeTabController(mActivity)); // 首页部分
         mPagerDatas.add(new NewsCenterTabController(mActivity)); // 新闻中心
@@ -148,7 +148,7 @@ public class ContentFragment extends BaseFragment {
             // // 返回标记
             // return tv;
 
-            BaseController controller = mPagerDatas.get(position);
+            TabController controller = mPagerDatas.get(position);
             // 添加到container显示
             View rootView = controller.getRootView();
             container.addView(rootView);
